@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
-import site.metacoding.red.domain.users.users.Users;
-import site.metacoding.red.domain.users.users.UsersDao;
+import site.metacoding.red.domain.users.Users;
+import site.metacoding.red.domain.users.UsersDao;
 import site.metacoding.red.web.dto.request.users.JoinDto;
 import site.metacoding.red.web.dto.request.users.UpdateDto;
 import site.metacoding.red.web.dto.resonse.RespDto;
@@ -27,7 +27,7 @@ public class UsersController {
 
 	@GetMapping("/users/{id}")
 	public RespDto<?> getUsers(@PathVariable Integer id) {// 자바 오브젝트는 제이슨으로 리턴		
-		return new RespDto<>(1,"성공",(id));//타입은 앞에서만 결정
+		return new RespDto<>(1,"성공",usersDao.findById(id)); //타입은 앞에서만 결정
 	}
 
 	@GetMapping("/users")
